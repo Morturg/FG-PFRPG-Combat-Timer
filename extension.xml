@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="iso-8859-1"?>
 <!-- Combat Timer extension module -->
-<root release="3.0" version="3">
+<root release="3.3" release="1">
     <properties>
-        <name>Combat Timer</name>
-        <version>1.0.4</version>
-        <author>Tyler Woods</author>
-        <description>
-            Adds a combat timer to the turn order.
-        </description>
+        <name>PFRPG - Combat Timer</name>
+        <version>1.0</version>
+        <author>Zygmunt Molotch</author>
+        <description>Extension</description>
     </properties>
+	<announcement text="PFRPG - Combat Timer \nBy Zygmunt Molotch \nBased off the Combat Timer Extension by mortgarra https://www.fantasygrounds.com/forums/showthread.php?30856-Combat-Timer-Extension-(v-0-0-1) \nPFRPG - Combat Timer v1.0" font="emotefont"/>
     <base>
         <includefile source="xml/window.xml" />
         <includefile source="graphics/graphics.xml" />
