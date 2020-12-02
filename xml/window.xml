@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<root>
+<!-- 	<template name="settings_title">
+		<genericcontrol>
+			<bounds>0,0,-1,40</bounds>
+			<font>windowtitle</font>
+			<static>
+				<text>Combat Timer Settings</text>
+			</static>
+			<parameters>
+				<windowmargin>60</windowmargin>
+				<controly>0</controly>
+				<controlheight>40</controlheight>
+				<minwidth>100</minwidth>
+			</parameters>
+		</genericcontrol>
+	</template>
+ -->
+	<template name="settings_title">
+		<windowtitlebar name="title">
+			<resource>timer_settings_window_title</resource>
+		</windowtitlebar>
+	</template>
+	
+ 
+	<template name="anchor_timer_settings">
+		<genericcontrol>
+			<anchored height="0">
+				<top parent="title" anchor="bottom" offset="0" />
+				<left offset="30" />
+				<right offset="-30" />
+			</anchored>
+			<disabled />
+		</genericcontrol>
+	</template>
+	
+	<template name="anchor_timer_settings_list">
+		<genericcontrol>
+			<anchored height="0">
+				<top offset="15" />
+				<left offset="15" />
+				<right offset="-15" />
+			</anchored>
+			<disabled />
+		</genericcontrol>
+	</template>
+	
+<!-- 	<template name="timercycler">
+		<stringfield>
+			<script>
+				function onInit()
+					-- Debug.console("button_timercycler - onInit");
+					-- Debug.console(window.getDatabaseNode());
+					-- Debug.console(getDatabaseNode());
+				end
+			</script>
+			<frame name="fielddark" offset="7,5,7,5" hidereadonly = "true" />
+			<stateframe>
+				<hover name="fieldfocus" offset="7,5,7,5" hidereadonly="true" />
+			</stateframe>
+			<datasource>.timertype</datasource>
+		</stringfield>
+	</template>
+ -->	
+	<template name="close_timer_settings">
+		<close>
+			<anchored>
+				<top offset="0" />
+				<right offset="-8" />
+			</anchored>
+		</close>
+	</template>
+	
+	<template name="settings_field">
+		<label>
+			<anchored height="20" width="50">
+				<top parent="contentanchor" anchor="bottom" relation="relative" offset="20" />
+				<left offset="20" />
+			</anchored>
+			<frame name="headersimple" offset="10,3,10,3" />
+		</label>
+	</template>
+
+</root>

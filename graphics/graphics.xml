@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<!-- 
+  Please see the license.html file included with this distribution for 
+  attribution and copyright information.
+-->
+
+<root>
+	<framedef name="timer_background">
+		<bitmap file="graphics/frames/TimerFrame.png" />
+ 		<middle rect="0,0,100,25" />
+	</framedef>
+	
+	<font name="stencil" file="" >
+		<fgffile name="graphics/fonts/stencil.fgf" />
+	</font>
+	
+	<icon name="button_timerstart" file="graphics/icons/button_timerstart2.png" />
+	<icon name="button_settings" file="graphics/icons/button_settings.png" />
+	<icon name="button_settings2" file="graphics/icons/button_settings2.png" />
+	<icon name="button_timerrunning" file="graphics/icons/button_timerrunning.png" />
+</root>
