@@ -3,7 +3,7 @@
 <root release="3.0" version="3">
     <properties>
         <name>Combat Timer</name>
-        <version>1.0.3</version>
+        <version>1.0.4</version>
         <author>Tyler Woods</author>
         <description>
             Adds a combat timer to the turn order.

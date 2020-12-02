@@ -49,9 +49,9 @@
 		<stringfield>
 			<script>
 				function onInit()
-					-- Debug.console("button_timercycler - onInit");
-					-- Debug.console(window.getDatabaseNode());
-					-- Debug.console(getDatabaseNode());
+					 Debug.console("button_timercycler - onInit");
+					 Debug.console(window.getDatabaseNode());
+					 Debug.console(getDatabaseNode());
 				end
 			</script>
 			<frame name="fielddark" offset="7,5,7,5" hidereadonly = "true" />
