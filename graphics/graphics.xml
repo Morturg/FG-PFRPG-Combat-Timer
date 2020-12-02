@@ -12,7 +12,7 @@
 	</framedef>
 	
 	<font name="stencil" file="" >
-		<fgffile name="graphics/fonts/stencil.fgf" />
+		<fgffile name="graphics/fonts/FreeUniversal-Regular.ttf" />
 	</font>
 	
 	<icon name="button_timerstart" file="graphics/icons/button_timerstart2.png" />
