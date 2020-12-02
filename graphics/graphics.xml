@@ -11,8 +11,8 @@
  		<middle rect="0,0,100,25" />
 	</framedef>
 	
-	<font name="stencil" file="" >
-		<fgffile name="graphics/fonts/FreeUniversal-Regular.ttf" />
+	<font name="FreeUniversal-Regular" file="" >
+		<ttf file="graphics/fonts/" name="FreeUniversal-Regular.ttf" />
 	</font>
 	
 	<icon name="button_timerstart" file="graphics/icons/button_timerstart2.png" />
