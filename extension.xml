@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="iso-8859-1"?>
 <!-- Combat Timer extension module -->
-<root release="3.3" release="1">
+<root version="3.3" release="1">
     <properties>
         <name>PFRPG - Combat Timer</name>
         <version>1.0</version>
