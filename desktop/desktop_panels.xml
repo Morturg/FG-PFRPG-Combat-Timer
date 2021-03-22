@@ -227,6 +227,8 @@
 						function onInit()
 							if User.getRulesetName() == "5E" or User.getRulesetName() == "AD&amp;D Core" then
 								window.combat_timer.setAnchor("left", "contentanchor", "left","absolute",170);
+						elseif  User.getRulesetName() == "SavageWorlds"  then
+								window.combat_timer.setAnchor("left", "contentanchor", "left","absolute",140);
 							end
 						end
 					
