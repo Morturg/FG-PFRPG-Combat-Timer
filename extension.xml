@@ -18,6 +18,9 @@
 	<ruleset>
 		<name>PFRPG2</name>
 	</ruleset>
+	<ruleset>
+		<name>SavageWorlds</name>
+	</ruleset>
     </properties>
 	<announcement text="PFRPG - Combat Timer \nBy Zygmunt Molotch \nBased off the Combat Timer Extension by mortgarra https://www.fantasygrounds.com/forums/showthread.php?30856-Combat-Timer-Extension-(v-0-0-1) \nPFRPG - Combat Timer v1.0" font="emotefont"/>
     <base>
