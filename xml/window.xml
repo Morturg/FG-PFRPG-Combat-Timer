@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="iso-8859-1"?>
 <root>
-<!-- 	<template name="settings_title">
+	<!-- <template name="settings_title">
 		<genericcontrol>
 			<bounds>0,0,-1,40</bounds>
 			<font>windowtitle</font>
@@ -14,15 +14,14 @@
 				<minwidth>100</minwidth>
 			</parameters>
 		</genericcontrol>
-	</template>
- -->
+	</template> -->
+
 	<template name="settings_title">
 		<windowtitlebar name="title">
 			<resource>timer_settings_window_title</resource>
 		</windowtitlebar>
 	</template>
-	
- 
+
 	<template name="anchor_timer_settings">
 		<genericcontrol>
 			<anchored height="0">
@@ -33,7 +32,7 @@
 			<disabled />
 		</genericcontrol>
 	</template>
-	
+
 	<template name="anchor_timer_settings_list">
 		<genericcontrol>
 			<anchored height="0">
@@ -44,8 +43,8 @@
 			<disabled />
 		</genericcontrol>
 	</template>
-	
-<!-- 	<template name="timercycler">
+
+	<!-- <template name="timercycler">
 		<stringfield>
 			<script>
 				function onInit()
@@ -60,8 +59,8 @@
 			</stateframe>
 			<datasource>.timertype</datasource>
 		</stringfield>
-	</template>
- -->	
+	</template> -->
+
 	<template name="close_timer_settings">
 		<close>
 			<anchored>
@@ -70,7 +69,7 @@
 			</anchored>
 		</close>
 	</template>
-	
+
 	<template name="settings_field">
 		<label>
 			<anchored height="20" width="50">
@@ -80,5 +79,4 @@
 			<frame name="headersimple" offset="10,3,10,3" />
 		</label>
 	</template>
-
 </root>

@@ -16,12 +16,14 @@
 		<name>PFRPG</name>
 	</ruleset>
     </properties>
+	
 	<announcement text="PFRPG - Combat Timer \nBy Zygmunt Molotch \nBased off the Combat Timer Extension by mortgarra https://www.fantasygrounds.com/forums/showthread.php?30856-Combat-Timer-Extension-(v-0-0-1) \nPFRPG - Combat Timer v1.0" font="emotefont"/>
+	
     <base>
         <includefile source="xml/window.xml" />
         <includefile source="graphics/graphics.xml" />
         <includefile source="strings/strings_timer.xml" />
         <includefile source="desktop/desktop_panels.xml" />
-	<script name="CombatTimer" file="scripts/combattimer.lua" />
+		<script name="CombatTimer" file="scripts/combattimer.lua" />
     </base>
 </root>
