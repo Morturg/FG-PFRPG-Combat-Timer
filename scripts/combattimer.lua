@@ -70,7 +70,7 @@ end
 function onInit()
 	-- Debug.console("onInit - ct_combat_timer");
 	OOBManager.registerOOBMsgHandler("ct_timer", receiveOOBMessage)
-	if Session.IsHost == true then
+	if Session.IsHost then
 		-- ct_active.lua directly activates database nodes and does not inform our callback hooks
 		-- that the turn is changing.  For my GM, who drags the turn tracker around, this breaks
 		-- the module.  So, instead we hook the CombatManager.requestActivation (which is common
@@ -218,7 +218,7 @@ end
 function toggleTimer()
 	-- Debug.console("toggleTimer - ct_combat_timer");
 	
-	if Session.IsHost == false then
+	if not Session.IsHost then
 		-- Debug.console("toggleTimer - Error: Only host can toggle the timer");
 		return
 	end
@@ -276,7 +276,7 @@ end
 function startTimer()
 	-- Debug.console("Combat Timer started!");
 
-	if Session.IsHost == false or timerRunning == true then
+	if not Session.IsHost or timerRunning == true then
 		return;
 	end
 	
@@ -318,9 +318,9 @@ function stopTimer()
 	
 	updateUI();
 	
-	-- Allow the code to get this far on if Session.IsHost == true.  This
+	-- Allow the code to get this far on if Session.IsHost.  This
 	-- function is called on de-initialization.
-	if Session.IsHost == false then
+	if not Session.IsHost then
 		return
 	end
 	
@@ -331,7 +331,7 @@ function resetTimer()
 
 	-- Debug.console("Combat Timer reset!");
 
-	if Session.IsHost == false then
+	if not Session.IsHost then
 		return;
 	end
 	
