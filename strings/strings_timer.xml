@@ -6,10 +6,9 @@
 -->
 
 <root>
-	<string name="ct_button_timerstart">Start/Pause Combat Timer</string>
 	<string name="ct_button_timersettings">Combat Timer Settings</string>
+	<string name="ct_button_timerstart">Start/Pause Combat Timer</string>
 	<string name="ct_timer_tooltip">Double-click to reset Combat Timer</string>
 	<string name="timer_settings_timertype">Timer</string>
 	<string name="timer_settings_window_title">Options</string>
-
 </root>

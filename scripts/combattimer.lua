@@ -70,16 +70,16 @@ end
 function onInit()
 	-- Debug.console("onInit - ct_combat_timer");
 	OOBManager.registerOOBMsgHandler("ct_timer", receiveOOBMessage)
-	if User.isHost() == true then
-		--ct_active.lua directly activates database nodes and does not inform our callback hooks
-		--that the turn is changing.  For my GM, who drags the turn tracker around, this breaks
-		--the module.  So, instead we hook the CombatManager.requestActivation (which is common
-		--to both turn transition paths) to reset the timer.
+	if Session.IsHost == true then
+		-- ct_active.lua directly activates database nodes and does not inform our callback hooks
+		-- that the turn is changing.  For my GM, who drags the turn tracker around, this breaks
+		-- the module.  So, instead we hook the CombatManager.requestActivation (which is common
+		-- to both turn transition paths) to reset the timer.
 		
-		--So anyway, this is horrible and I should probably be shot for doing this.
+		-- So anyway, this is horrible and I should probably be shot for doing this.
 		-- What else is new?
 		
-		--CombatManager.setCustomTurnStart(customTurnStart);
+		-- CombatManager.setCustomTurnStart(customTurnStart);
 		old_requestActivation = CombatManager.requestActivation;
 		CombatManager.requestActivation = requestActivationHook;
 	end
@@ -94,11 +94,11 @@ function onClose()
 		CombatManager.requestActivation = old_requestActivation;
 	end
 	
-	--Stop message notifications
+	-- Stop message notifications
 	OOBManager.registerOOBMsgHandler("ct_timer", nil)
 
-	--Stop the timer if it's running (directly set variables as 
-	--stopTimer is not safe to call while FG is closing)
+	-- Stop the timer if it's running (directly set variables as 
+	-- stopTimer is not safe to call while FG is closing)
 	lastEpoch = 0;
 	timerRunning = false;
 	timerEnabled = false;
@@ -112,9 +112,9 @@ end
 
 function requestActivationHook(nodeEntry, bSkipBell)
 	
-	-- -- We'll still get turn notifications even if the window is closed.
-	-- -- resetTimer should do the right thing.
-	-- -- Debug.console("customTurnStart", nodeCT);
+	-- We'll still get turn notifications even if the window is closed.
+	-- resetTimer should do the right thing.
+	-- Debug.console("customTurnStart", nodeCT);
 
 	resetTimer();
 	
@@ -175,7 +175,7 @@ function getTimerType()
 end
 
 function setTimerType(tType)
-	--Only reset timer when values change
+	-- Only reset timer when values change
 	doReset = false
 	if timerType ~= tType then
 		doReset = true
@@ -189,7 +189,7 @@ function setTimerType(tType)
 end
 
 function setTimerDuration(tTime)
-	--Only reset timer when values change
+	-- Only reset timer when values change
 	doReset = false
 	if timerDuration ~= tTime then
 		doReset = true
@@ -218,7 +218,7 @@ end
 function toggleTimer()
 	-- Debug.console("toggleTimer - ct_combat_timer");
 	
-	if User.isHost() == false then
+	if Session.IsHost == false then
 		-- Debug.console("toggleTimer - Error: Only host can toggle the timer");
 		return
 	end
@@ -234,7 +234,7 @@ function getTimeElapsed()
 	
 	result = 0
 	
-	--Calculate timer display based upon the type of timer it is
+	-- Calculate timer display based upon the type of timer it is
 	if timerType == 0 then -- Count Down
 		result = timerDuration - timePassed - timeSoFar 
 	else -- Count Up
@@ -276,7 +276,7 @@ end
 function startTimer()
 	-- Debug.console("Combat Timer started!");
 
-	if User.isHost() == false or timerRunning == true then
+	if Session.IsHost == false or timerRunning == true then
 		return;
 	end
 	
@@ -287,11 +287,11 @@ function startTimer()
 		Comm.addChatMessage(warningmsg)
 	end
 
-	--Send a notificaiton that the timer has started up again
+	-- Send a notificaiton that the timer has started up again
 	timerVal = getTimeElapsed()
 	start(timerVal)
 
-	--Only start ticking if we have time left on the timer
+	-- Only start ticking if we have time left on the timer
 	if (timerType == 0 and timerVal > 0) or (timerType == 1) then
 		timerRunning = true;
 		startTime = os.time(); 
@@ -318,9 +318,9 @@ function stopTimer()
 	
 	updateUI();
 	
-	-- Allow the code to get this far on if User.isHost() == true.  This
+	-- Allow the code to get this far on if Session.IsHost == true.  This
 	-- function is called on de-initialization.
-	if User.isHost() == false then
+	if Session.IsHost == false then
 		return
 	end
 	
@@ -331,7 +331,7 @@ function resetTimer()
 
 	-- Debug.console("Combat Timer reset!");
 
-	if User.isHost() == false then
+	if Session.IsHost == false then
 		return;
 	end
 	
@@ -347,7 +347,7 @@ function resetTimer()
 	update(timerValue)
 	
 	if timerEnabled == true then
-		--Set timerRunning to true regardless of original value
+		-- Set timerRunning to true regardless of original value
 		timerRunning = true 
 		ping(timerValue, lastEpoch+1);
 	end
@@ -361,7 +361,7 @@ function receiveOOBMessage(msg)
 	
 	cmd, gen, param = parseMessage(msg.text);
 	
-	if User.isHost() then
+	if Session.IsHost then
 		if cmd == "CT_PONG" and lastEpoch < gen and timerRunning then
 			-- Only send a Ping to keep the timer running if the timer is going to keep counting
 			lastEpoch = gen
@@ -372,19 +372,19 @@ function receiveOOBMessage(msg)
 			if timeleft >= 0 then 
 				ping(timeleft, lastEpoch+1);
 			else
-				--Our timer has ended.  Shut off the timer and update timePassed
+				-- Our timer has ended.  Shut off the timer and update timePassed
 				-- Reset remaining expiration from the startTime
 				timerRunning = false;
 				timePassed = timePassed + os.time() - startTime;
 
-				--Ring the bell if its enabled
+				-- Ring the bell if its enabled
 				if pingEnabled ~= 0 then
 					User.ringBell() -- Props to Nickademus for this
 				end
 				
 			end
 		end
-	else -- not User.isHost() 
+	else -- not Session.IsHost 
 		if cmd == "CT_PING" and lastEpoch < gen then
 			-- Send a response message to keep the timer running
 			-- Don't worry about whether the server is running. Just respond
@@ -393,7 +393,7 @@ function receiveOOBMessage(msg)
 			
 			pong(msg.sender, gen);
 			
-			--Update the view with the latest numbers from the server
+			-- Update the view with the latest numbers from the server
 			
 			updateUI(param);
 			
@@ -404,24 +404,24 @@ function receiveOOBMessage(msg)
 				timerEnabled = true
 			end
 
-			--Update the view with the latest numbers from the server
+			-- Update the view with the latest numbers from the server
 			updateUI();
 		elseif cmd == "CT_START" then
 			lastEpoch = gen
 
 			timerRunning = true;
 
-			--Update the view with the latest numbers from the server
+			-- Update the view with the latest numbers from the server
 			updateUI(param);
 			
 		elseif cmd == "CT_UPDATE" then
-			--Update the view with the latest numbers from the server
+			-- Update the view with the latest numbers from the server
 			updateUI(param);
 			
 		elseif cmd == "CT_STOP" then
 			timerRunning = false;
 	
-			--Update the view with the latest numbers from the server
+			-- Update the view with the latest numbers from the server
 			updateUI(param);
 		end
 	end
@@ -433,7 +433,7 @@ end
 ----------------------------------------
 
 function start(param)
-	--Only update the startTimer
+	-- Only update the startTimer
 	startTime = os.time();
 	
 	startmsg = {};
@@ -518,4 +518,3 @@ function pong(user, epoch)
 	
 	Comm.deliverOOBMessage(pongmsg, user);
 end
-
