@@ -148,7 +148,6 @@
 			<simplestring name="timer">
 				<bounds>25,2,50,17</bounds>
 				<nodrag />
-				<font>stencil</font>
 				<readonly />
 				<tooltip textres="ct_timer_tooltip" />
 				<script>
@@ -195,7 +194,6 @@
 			<simplestring name="timer">
 				<bounds>25,2,50,17</bounds>
 				<nodrag />
-				<font>stencil</font>
 				<readonly />
 				<script>
 					function onInit()
