@@ -1,29 +1,19 @@
 <?xml version="1.0" encoding="iso-8859-1"?>
-<!-- Combat Timer extension module -->
 <root version="3.3" release="1">
     <properties>
         <name>PFRPG - Combat Timer</name>
-        <version>1.0</version>
+        <version>1.1</version>
         <author>Zygmunt Molotch</author>
         <description>Extension</description>
-	<ruleset>
-		<name>3.5E</name>
-	</ruleset>
-	<ruleset>
-		<name>5E</name>
-	</ruleset>
-	<ruleset>
-		<name>PFRPG</name>
-	</ruleset>
     </properties>
 	
-	<announcement text="PFRPG - Combat Timer \nBy Zygmunt Molotch \nBased off the Combat Timer Extension by mortgarra https://www.fantasygrounds.com/forums/showthread.php?30856-Combat-Timer-Extension-(v-0-0-1) \nPFRPG - Combat Timer v1.0" font="emotefont"/>
+	<announcement text="Combat Timer v1.1\nBy Zygmunt Molotch\nBased off the Combat Timer Extension by mortgarra\nhttps://www.fantasygrounds.com/forums/showthread.php?30856-Combat-Timer-Extension-(v-0-0-1)" font="emotefont"/>
 	
     <base>
         <includefile source="xml/window.xml" />
         <includefile source="graphics/graphics.xml" />
         <includefile source="strings/strings_timer.xml" />
         <includefile source="desktop/desktop_panels.xml" />
-		<script name="CombatTimer" file="scripts/combattimer.lua" />
+	<script name="CombatTimer" file="scripts/combattimer.lua" />
     </base>
 </root>
