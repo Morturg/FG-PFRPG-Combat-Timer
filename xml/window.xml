@@ -1,21 +1,5 @@
 <?xml version="1.0" encoding="iso-8859-1"?>
-<root>
-	<!-- <template name="settings_title">
-		<genericcontrol>
-			<bounds>0,0,-1,40</bounds>
-			<font>windowtitle</font>
-			<static>
-				<text>Combat Timer Settings</text>
-			</static>
-			<parameters>
-				<windowmargin>60</windowmargin>
-				<controly>0</controly>
-				<controlheight>40</controlheight>
-				<minwidth>100</minwidth>
-			</parameters>
-		</genericcontrol>
-	</template> -->
-
+<root>	
 	<template name="settings_title">
 		<windowtitlebar name="title">
 			<resource>timer_settings_window_title</resource>
@@ -43,24 +27,6 @@
 			<disabled />
 		</genericcontrol>
 	</template>
-
-	<!-- <template name="timercycler">
-		<stringfield>
-			<script>
-				function onInit()
-					 Debug.console("button_timercycler - onInit");
-					 Debug.console(window.getDatabaseNode());
-					 Debug.console(getDatabaseNode());
-				end
-			</script>
-			<frame name="fielddark" offset="7,5,7,5" hidereadonly = "true" />
-			<stateframe>
-				<hover name="fieldfocus" offset="7,5,7,5" hidereadonly="true" />
-			</stateframe>
-			<datasource>.timertype</datasource>
-		</stringfield>
-	</template> -->
-
 	<template name="close_timer_settings">
 		<close>
 			<anchored>

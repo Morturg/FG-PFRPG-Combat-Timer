@@ -2,22 +2,13 @@
 <!-- Combat Timer extension module -->
 <root version="3.3" release="1">
     <properties>
-        <name>PFRPG - Combat Timer</name>
-        <version>1.0</version>
+        <name>Feature: Combat Timer</name>
+        <version>1.2</version>
         <author>Zygmunt Molotch</author>
-        <description>Extension</description>
-	<ruleset>
-		<name>3.5E</name>
-	</ruleset>
-	<ruleset>
-		<name>5E</name>
-	</ruleset>
-	<ruleset>
-		<name>PFRPG</name>
-	</ruleset>
+        <description>Extension</description>	
     </properties>
 	
-	<announcement text="PFRPG - Combat Timer \nBy Zygmunt Molotch \nBased off the Combat Timer Extension by mortgarra https://www.fantasygrounds.com/forums/showthread.php?30856-Combat-Timer-Extension-(v-0-0-1) \nPFRPG - Combat Timer v1.0" font="emotefont"/>
+	<announcement text="PFRPG - Combat Timer \nBy Zygmunt Molotch \nBased off the Combat Timer Extension by mortgarra \n comments and bugs report here https://www.fantasygrounds.com/forums/showthread.php?30856-Combat-Timer-Extension-(v-0-0-1) \nPFRPG - Combat Timer v1.0" font="emotefont"/>
 	
     <base>
         <includefile source="xml/window.xml" />
